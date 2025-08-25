@@ -133,7 +133,7 @@ def reset_config(cfg, args):
     if args.job_id:
         cfg.project.job_id = args.job_id
 
-def build_config(args=None, config=None, config_path=None, display_diff=False):
+def build_config(args=None, config=None, config_path=None, display_diff=False, model_weights = None):
     cfg = get_default_config()
     default_cfg_copy = cfg.clone()
 
@@ -149,7 +149,10 @@ def build_config(args=None, config=None, config_path=None, display_diff=False):
     if args is not None:
         reset_config(cfg, args)
         cfg.merge_from_list(args.opts)
+    if model_weights is not None:
+        cfg.model.load_weights = model_weights
 
+    
     # set parts information (number of parts K and each part name),
     # depending on the original loaded masks size or the transformation applied:
     compute_parts_num_and_names(cfg)
