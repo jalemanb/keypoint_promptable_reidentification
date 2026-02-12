@@ -208,14 +208,6 @@ def build_config(args=None, config=None, config_path=None, display_diff=False, m
     if display_diff:
         display_config_diff(cfg, default_cfg_copy)
 
-    # init save dir
-    cfg.data.save_dir = os.path.join(cfg.data.save_dir, str(cfg.project.job_id))
-    os.makedirs(cfg.data.save_dir)
-    print(
-        "Save dir created at {}".format(
-            os.path.join(pathlib.Path().resolve(), cfg.data.save_dir)
-        )
-    )
     return cfg
 
 

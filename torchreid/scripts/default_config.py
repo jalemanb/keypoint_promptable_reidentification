@@ -46,7 +46,7 @@ def get_default_config():
     cfg.project.logger.use_tensorboard = False
     cfg.project.logger.use_wandb = False
     cfg.project.logger.matplotlib_show = False
-    cfg.project.logger.save_disk = True  # save images to disk
+    cfg.project.logger.save_disk = False  # save images to disk
     cfg.project.job_id = random.randint(0, 1_000_000_000)
     cfg.project.experiment_id = str(uuid.uuid4())
     cfg.project.start_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_%MS")
